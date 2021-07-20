@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="https://npm-scalableminds.s3.eu-central-1.amazonaws.com/@scalableminds/chatroom@master/dist/Chatroom.css" />
+      <title>ChatBot</title>
+      <style>
+        html,body,.chat-container,.chatroom {
+          height:100%;
+        }
+        .input{
+    position: absolute;
+    bottom: 2px;
+}
+      </style>
+      </head>
+      <body>
+        <div class="chat-container"></div>
+      
+        <script src="https://npm-scalableminds.s3.eu-central-1.amazonaws.com/@scalableminds/chatroom@master/dist/Chatroom.js"/></script>
+        <script type="text/javascript">
+          var chatroom = new window.Chatroom({
+            host: "http://localhost:5005",
+            title: "Pay1 Bot",
+            container: document.querySelector(".chat-container"),
+            welcomeMessage: "I am an assistant powered by Pay1. You can start conversation by 'Hi'",
+            speechRecognition: "en-US",
+            voiceLang: "en-US"
+          });
+          chatroom.openChat();
+        </script>
+        <script type="text/javascript">
+          // const x = document.getElementsByClassName("chat right")
+          // // const element = x.getElementsByTagName("span")
+          // console.log(x)
+          // const element = document.getElementsByClassName("chat-button");
+          document.addEventListener("click", function(e){
+            if(e.target && (e.target.className=="chat-button chat-button-disabled" || e.target.localName=="span" )){
+              // console.log(e.target.innerText)
+              var temp = e.target.innerText
+              // console.log(temp)
+            const x = document.getElementsByClassName("chat right")
+          // const element = x.getElementsByTagName("span")
+          // console.log(x)
+          var last_element = x[x.length-1]
+          // console.log(last_element.innerText)
+          if(last_element.innerText.startsWith("/inform")){
+            last_element.innerText = temp
+          }
+          
+          
+            }
+            
+          
+           });
+        </script>
+      </body>
+</html>

@@ -8,7 +8,7 @@ import os
 #pip install phpserialize
 
 env_path = '.env'
-load_dotenv(dotenv_path=env_path)
+load_dotenv()
 
 class SessionManager:
     def __init__(self,user_id,token):
@@ -75,6 +75,6 @@ class SessionManager:
     
 
 #How to Use
-# session_manager = SessionManager('47007593','gkqjdkfm287snvuu25tfg9d5t1')
-# session = session_manager.validate_session()
-# print (session)
+session_manager = SessionManager('47007593','gkqjdkfm287snvuu25tfg9d5t1')
+session = session_manager.validate_session()
+print (session)
